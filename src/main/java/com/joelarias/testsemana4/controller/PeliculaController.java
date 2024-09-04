@@ -38,6 +38,15 @@ public class PeliculaController {
 
     @PostMapping("/crear")
     public Pelicula crearPelicula(@RequestBody Pelicula pelicula) {
+        // Validacion sencilla de erorres si es que el titulo no es null o vacio
+        if (pelicula.getTitulo() == null || pelicula.getTitulo().isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El título de la película es obligatorio");
+        }
+        
+        if (pelicula.getAnio() <= 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El año de la película es inválido");
+        }
+    
         return peliculaService.guardarPelicula(pelicula);
     }
     
