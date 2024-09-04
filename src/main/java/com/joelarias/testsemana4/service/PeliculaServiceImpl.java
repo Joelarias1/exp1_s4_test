@@ -24,4 +24,9 @@ public class PeliculaServiceImpl implements PeliculaService {
         return peliculaRepository.findById(id);
     }
 
+    @Override
+    public Pelicula guardarPelicula(Pelicula pelicula) {
+        return peliculaRepository.save(pelicula);
+    }
+
 }

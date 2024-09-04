@@ -12,6 +12,9 @@ import com.joelarias.testsemana4.model.Pelicula;
 import com.joelarias.testsemana4.service.PeliculaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -33,4 +36,9 @@ public class PeliculaController {
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pelicula no encontrada"));
     }
 
+    @PostMapping("/crear")
+    public Pelicula crearPelicula(@RequestBody Pelicula pelicula) {
+        return peliculaService.guardarPelicula(pelicula);
+    }
+    
 }

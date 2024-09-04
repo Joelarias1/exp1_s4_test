@@ -8,6 +8,6 @@ import com.joelarias.testsemana4.model.Pelicula;
 public interface PeliculaService {
     List<Pelicula> getAllPeliculas();
     Optional<Pelicula> getPeliculaById(Long id);
-
+    Pelicula guardarPelicula(Pelicula pelicula);
 }
 
